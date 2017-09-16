@@ -36,7 +36,7 @@ GraphViz官方网站：[http://www.graphviz.org](http://www.graphviz.org)
 
 Windows系统下GraphViz下载地址为：[Windows下载地址](http://www.graphviz.org/Download_windows.php)
 
-<img src="https://github.com/holynova-SD/Blog-Pictures/blob/master/2017-09-16/winGraphViz.png" alt="Loading..."/>
+<img src="https://github.com/holynova-SD/Blog-Pictures/blob/master/2017-09-16/winGraphViz.png?raw=true" alt="Loading..."/>
 
 选择相应文件下载安装后需将graphviz安装目录下的bin文件夹添加到Path环境变量中。之后在cmd中输入
 ```
@@ -56,7 +56,7 @@ dot -version
 ```
 如果正确显示版本号等信息则说明安装成功。
 
-##GraphViz简单使用
+## GraphViz简单使用
 
 ### GraphViz程序中使用
 
@@ -347,7 +347,7 @@ digraph g {
 ```
 节点a的边框就是五边形。
 
-####设置节点边框的层数
+#### 设置节点边框的层数
 ```
  节点文字内容[peripheries=层数];
 ```
