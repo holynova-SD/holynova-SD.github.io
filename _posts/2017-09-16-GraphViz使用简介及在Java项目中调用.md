@@ -79,27 +79,16 @@ dot filename1 -Ttype -o filename2
 在某文件夹下创建文本文档，编辑以下内容：
 
 ```
-
 digraph G {
-
- main -\> parse -\> execute;
-
- main -\> init;
-
- main -\> cleanup;
-
- execute -\> make\_string;
-
- execute -\> printf
-
- init -\> make\_string;
-
- main -\> printf;
-
- execute -\> compare;
-
+    main -> parse -> execute;
+    main -> init;
+    main -> cleanup;
+    execute -> make_string;
+    execute -> printf
+    init -> make_string;
+    main -> printf;
+    execute -> compare;
 }
-
 ```
 
 并保存为.dot文件或.gv文件（这里以.gv文件举例，保存为test.gv，生成图片以.jpg格式举例）。
@@ -115,45 +104,25 @@ dot -Tjpg test.gv -o test.jpg
 编辑test.gv为以下内容：
 
 ```
-
 digraph g {
-
- node [shape = record,height=.1];
-
- node0[label = "\<f0\> |\<f1\> G|\<f2\> "];
-
- node1[label = "\<f0\> |\<f1\> E|\<f2\> "];
-
- node2[label = "\<f0\> |\<f1\> B|\<f2\> "];
-
- node3[label = "\<f0\> |\<f1\> F|\<f2\> "];
-
- node4[label = "\<f0\> |\<f1\> R|\<f2\> "];
-
- node5[label = "\<f0\> |\<f1\> H|\<f2\> "];
-
- node6[label = "\<f0\> |\<f1\> Y|\<f2\> "];
-
- node7[label = "\<f0\> |\<f1\> A|\<f2\> "];
-
- node8[label = "\<f0\> |\<f1\> C|\<f2\> "];
-
- "node0":f2 -\> "node4":f1;
-
- "node0":f0 -\> "node1":f1;
-
- "node1":f0 -\> "node2":f1;
-
- "node1":f2 -\> "node3":f1;
-
- "node2":f2 -\> "node8":f1;
-
- "node2":f0 -\> "node7":f1;
-
- "node4":f2 -\> "node6":f1;
-
- "node4":f0 -\> "node5":f1;
-
+    node [shape = record,height=.1];
+    node0[label = "<f0> |<f1> G|<f2> "];
+    node1[label = "<f0> |<f1> E|<f2> "];
+    node2[label = "<f0> |<f1> B|<f2> "];
+    node3[label = "<f0> |<f1> F|<f2> "];
+    node4[label = "<f0> |<f1> R|<f2> "];
+    node5[label = "<f0> |<f1> H|<f2> "];
+    node6[label = "<f0> |<f1> Y|<f2> "];
+    node7[label = "<f0> |<f1> A|<f2> "];
+    node8[label = "<f0> |<f1> C|<f2> "];
+    "node0":f2 -> "node4":f1;
+    "node0":f0 -> "node1":f1;
+    "node1":f0 -> "node2":f1;
+    "node1":f2 -> "node3":f1;
+    "node2":f2 -> "node8":f1;
+    "node2":f0 -> "node7":f1;
+    "node4":f2 -> "node6":f1;
+    "node4":f0 -> "node5":f1;
 }
 
 ```
@@ -165,31 +134,18 @@ digraph g {
 编辑test.gv为以下内容：
 
 ```
-
 digraph G {
-
- node [peripheries=2 style=filled color="\#eecc80"]
-
- edge [color="sienna" fontcolor="green"]
-
- main -\> parse -\> execute;
-
- main -\> init [arrowhead = box];
-
- main -\> cleanupi -\> main;
-
- make\_string[label = once shape=parallelogram style=filled ]
-
- execute -\> make\_string[label=go style=dashed arrowtail=diamond];
-
- execute -\> printf [shape=box];
-
- init -\> make\_string;
-
- main -\> printf[dir=none];
-
- execute -\> compare[dir=both];
-
+    node [peripheries=2 style=filled color="#eecc80"]
+    edge [color="sienna" fontcolor="green"]
+    main -> parse -> execute;
+    main -> init [arrowhead = box];
+    main -> cleanupi -> main;
+    make_string[label = once shape=parallelogram style=filled ]
+    execute -> make_string[label=go style=dashed arrowtail=diamond];
+    execute -> printf [shape=box];
+    init -> make_string;
+    main -> printf[dir=none];
+    execute -> compare[dir=both];
 }
 
 ```
@@ -204,7 +160,7 @@ digraph G {
 
 dot语法使用使用双斜杠注释。
 
-###全局性质
+### 全局性质
 
 在dot语法中，对于所有字符串，除了多语句节点都应该加上双引号。如果是单个单词（即中间没有空格）就可以不加。
 
@@ -273,13 +229,9 @@ dot主函数有两种，有向图和无向图。
 有向图（使用-\>表述节点之间的关系）：
 
 ```
-
-digraph my\_name（图的名字，自己命名） 
-
-{ 
-
- …… 
-
+digraph my_name（图的名字，自己命名）  
+{  
+    ……  
 }
 
 ```
@@ -287,13 +239,9 @@ digraph my\_name（图的名字，自己命名）
 无向图（使用--表述节点之间的关系）：
 
 ```
-
-graph my\_name（图的名字，自己命名） 
-
-{ 
-
- …… 
-
+graph my_name（图的名字，自己命名）  
+{  
+    ……  
 }
 
 ```
@@ -301,19 +249,14 @@ graph my\_name（图的名字，自己命名）
 定义好主图之后，在主图中还可以定义子图，如：
 
 ```
-
 digraph G {
+    subgraph cluster_0 {
 
- subgraph cluster\_0 {
+    }
+    subgraph cluster_1 {
 
- }
-
- subgraph cluster\_1 {
-
- }
-
- ......
-
+    }
+    ......
 }
 
 ```
@@ -321,49 +264,29 @@ digraph G {
 举个例子，以下内容：
 
 ```
+digraph g {     
+    subgraph cluster0 {
+         node[style=filled, color=white];
+         style=filled;
+         color=brown;
+         a0->a1->a2;
+         label="process #1";
+      }
 
-digraph g { 
+    subgraph cluster1 {
+       node[style=filled, color=white];
+       style=filled;
+       color=pink;
+       b0->b1->b2;
+       label="process #2";
+       labelColor=white;
+    }
 
- subgraph cluster0 {
-
- node[style=filled, color=white];
-
- style=filled;
-
- color=brown;
-
- a0-\>a1-\>a2;
-
- label="process \#1";
-
- }
-
- subgraph cluster1 {
-
- node[style=filled, color=white];
-
- style=filled;
-
- color=pink;
-
- b0-\>b1-\>b2;
-
- label="process \#2";
-
- labelColor=white;
-
- }
-
- start-\>a0;
-
- start-\>b0;
-
- a1-\>b1;
-
- a2-\>end;
-
- b2-\>end;
-
+     start->a0;
+     start->b0;
+     a1->b1;
+     a2->end;
+     b2->end;
  }
 
 ```
@@ -526,7 +449,7 @@ digraph g {
 
 点和边的属性可取值具体可从GraphViz官网（http://www.graphviz.org）官方文档了解。这里不再赘述。
 
-#在Java项目中调用GraphViz的一种方法
+# 在Java项目中调用GraphViz的一种方法
 
 >有时候需要在Java项目中调用GraphViz，已经有人专门为此写好了一个类，只需将此类加入项目即可。（首先要确保计算机中已安装GraphViz软件）
 
@@ -539,589 +462,328 @@ TEMP\_DIR由在第73行的setdir函数确定，如果不想每次调用都设立
 代码如下：
 
 ```
-
 package textGraph;
-
 import java.io.BufferedReader;
-
 import java.io.DataInputStream;
-
 import java.io.File;
-
 import java.io.FileInputStream;
-
 import java.io.FileOutputStream;
-
 import java.io.FileWriter;
-
 import java.io.InputStreamReader;
 
-/\*\*
-
-\* \<dl\>
-
-\* \<dt\>Purpose: GraphViz Java API
-
-\* \<dd\>
-
-\*
-
-\* \<dt\>Description:
-
-\* \<dd\> With this Java class you can simply call dot
-
-\* from your Java programs.
-
-\* \<dt\>Example usage:
-
-\* \<dd\>
-
-\* \<pre\>
-
-\* GraphViz gv = new GraphViz();
-
-\* gv.setdir(".../.../.../");
-
-\* gv.addln(gv.start\_graph());
-
-\* gv.addln("A -\> B;");
-
-\* gv.addln("A -\> C;");
-
-\* gv.addln(gv.end\_graph());
-
-\* System.out.println(gv.getDotSource());
-
-\*
-
-\* String type = "gif";
-
-\* File out = new File("out." + type); // out.gif in this example
-
-\* gv.writeGraphToFile( gv.getGraph( gv.getDotSource(), type ), out );
-
-\* \</pre\>
-
-\* \</dd\>
-
-\*
-
-\* \</dl\>
-
-\*
-
-\* @version v0.5.1, 2013/03/18 (March) -- Patch of Juan Hoyos (Mac support)
-
-\* @version v0.5, 2012/04/24 (April) -- Patch of Abdur Rahman (OS detection + start subgraph + 
-
-\* read config file)
-
-\* @version v0.4, 2011/02/05 (February) -- Patch of Keheliya Gallaba is added. Now you
-
-\* can specify the type of the output file: gif, dot, fig, pdf, ps, svg, png, etc.
-
-\* @version v0.3, 2010/11/29 (November) -- Windows support + ability to read the graph from a text file
-
-\* @version v0.2, 2010/07/22 (July) -- bug fix
-
-\* @version v0.1, 2003/12/04 (December) -- first release
-
-\* @author Laszlo Szathmary (\<a href="jabba.laci@gmail.com"\>jabba.laci@gmail.com\</a\>)
-
-\*/
-
+/**
+* <dl>
+* <dt>Purpose: GraphViz Java API
+* <dd>
+*
+* <dt>Description:
+* <dd> With this Java class you can simply call dot
+*      from your Java programs.
+* <dt>Example usage:
+* <dd>
+* <pre>
+*    GraphViz gv = new GraphViz();
+*    gv.setdir(".../.../.../");
+*    gv.addln(gv.start_graph());
+*    gv.addln("A -> B;");
+*    gv.addln("A -> C;");
+*    gv.addln(gv.end_graph());
+*    System.out.println(gv.getDotSource());
+*
+*    String type = "gif";
+*    File out = new File("out." + type);   // out.gif in this example
+*    gv.writeGraphToFile( gv.getGraph( gv.getDotSource(), type ), out );
+* </pre>
+* </dd>
+*
+* </dl>
+*
+* @version v0.5.1, 2013/03/18 (March) -- Patch of Juan Hoyos (Mac support)
+* @version v0.5, 2012/04/24 (April) -- Patch of Abdur Rahman (OS detection + start subgraph + 
+* read config file)
+* @version v0.4, 2011/02/05 (February) -- Patch of Keheliya Gallaba is added. Now you
+* can specify the type of the output file: gif, dot, fig, pdf, ps, svg, png, etc.
+* @version v0.3, 2010/11/29 (November) -- Windows support + ability to read the graph from a text file
+* @version v0.2, 2010/07/22 (July) -- bug fix
+* @version v0.1, 2003/12/04 (December) -- first release
+* @author  Laszlo Szathmary (<a href="jabba.laci@gmail.com">jabba.laci@gmail.com</a>)
+*/
 public class GraphViz {
-
- /\*\*
-
- \* The dir. where temporary files will be created.
-
- \*/
-
- private static String TEMP\_DIR ;
-
- /\*\*
-
- \* Where is your dot program located? It will be called externally.
-
- \*/
-
- private static String DOT = "/usr/local/bin/dot";
-
- /\*\*
-
- \* The image size in dpi. 96 dpi is normal size. Higher values are 10% higher each.
-
- \* Lower values 10% lower each.
-
- \* 
-
- \* dpi patch by Peter Mueller
-
- \*/
-
- private int[] dpiSizes = {46, 51, 57, 63, 70, 78, 86, 96, 106, 116, 128, 141, 155, 170, 187, 206, 226, 249};
-
- /\*\*
-
- \* Define the index in the image size array.
-
- \*/
-
- private int currentDpiPos = 15;
-
- /\*\*
-
- \* set the dir. where temporary files will be created.
-
- \*/
-
- public void setdir(String path) {
-
-  TEMP\_DIR = path;
-
- }
-
- /\*\*
-
- \* Increase the image size (dpi).
-
- \*/
-
- public void increaseDpi() {
-
- if ( this.currentDpiPos \< (this.dpiSizes.length - 1) ) {
-
- ++this.currentDpiPos;
-
- }
-
- }
-
- /\*\*
-
- \* Decrease the image size (dpi).
-
- \*/
-
- public void decreaseDpi() {
-
- if (this.currentDpiPos \> 0) {
-
- --this.currentDpiPos;
-
- }
-
- }
-
- public int getImageDpi() {
-
- return this.dpiSizes[this.currentDpiPos];
-
- }
-
- /\*\*
-
- \* The source of the graph written in dot language.
-
- \*/
-
- private StringBuilder graph = new StringBuilder();
-
- /\*\*
-
- \* Constructor: creates a new GraphViz object that will contain
-
- \* a graph.
-
- \*/
-
- public GraphViz() {
-
- }
-
- /\*\*
-
- \* Returns the graph's source description in dot language.
-
- \* @return Source of the graph in dot language.
-
- \*/
-
- public String getDotSource() {
-
- return this.graph.toString();
-
- }
-
- /\*\*
-
- \* Adds a string to the graph's source (without newline).
-
- \*/
-
- public void add(String line) {
-
- this.graph.append(line);
-
- }
-
- /\*\*
-
- \* Adds a string to the graph's source (with newline).
-
- \*/
-
- public void addln(String line) {
-
- this.graph.append(line + "\\n");
-
- }
-
- /\*\*
-
- \* Adds a newline to the graph's source.
-
- \*/
-
- public void addln() {
-
- this.graph.append('\\n');
-
- }
-
- public void clearGraph(){
-
- this.graph = new StringBuilder();
-
- }
-
- /\*\*
-
- \* Returns the graph as an image in binary format.
-
- \* @param dot\_source Source of the graph to be drawn.
-
- \* @param type Type of the output image to be produced, e.g.: gif, dot, fig, pdf, ps, svg, png.
-
- \* @return A byte array containing the image of the graph.
-
- \*/
-
- public byte[] getGraph(String dot\_source, String type)
-
- {
-
- File dot;
-
- byte[] img\_stream = null;
-
- try {
-
- dot = writeDotSourceToFile(dot\_source);
-
- if (dot != null)
-
- {
-
- img\_stream = get\_img\_stream(dot, type);
-
- if (dot.delete() == false) 
-
- System.err.println("Warning: " + dot.getAbsolutePath() + " could not be deleted!");
-
- return img\_stream;
-
- }
-
- return null;
-
- } catch (java.io.IOException ioe) { return null; }
-
- }
-
- /\*\*
-
- \* Writes the graph's image in a file.
-
- \* @param img A byte array containing the image of the graph.
-
- \* @param file Name of the file to where we want to write.
-
- \* @return Success: 1, Failure: -1
-
- \*/
-
- public int writeGraphToFile(byte[] img, String file)
-
- {
-
- File to = new File(file);
-
- return writeGraphToFile(img, to);
-
- }
-
- /\*\*
-
- \* Writes the graph's image in a file.
-
- \* @param img A byte array containing the image of the graph.
-
- \* @param to A File object to where we want to write.
-
- \* @return Success: 1, Failure: -1
-
- \*/
-
- public int writeGraphToFile(byte[] img, File to)
-
- {
-
- try {
-
- FileOutputStream fos = new FileOutputStream(to);
-
- fos.write(img);
-
- fos.close();
-
- } catch (java.io.IOException ioe) { return -1; }
-
- return 1;
-
- }
-
- /\*\*
-
- \* It will call the external dot program, and return the image in
-
- \* binary format.
-
- \* @param dot Source of the graph (in dot language).
-
- \* @param type Type of the output image to be produced, e.g.: gif, dot, fig, pdf, ps, svg, png.
-
- \* @return The image of the graph in .gif format.
-
- \*/
-
- private byte[] get\_img\_stream(File dot, String type)
-
- {
-
- File img;
-
- byte[] img\_stream = null;
-
- try {
-
- img = File.createTempFile("graph\_", "."+type, new File(GraphViz.TEMP\_DIR));
-
- Runtime rt = Runtime.getRuntime();
-
- String[] args = {DOT, "-T"+type, "-Gdpi="+dpiSizes[this.currentDpiPos], dot.getAbsolutePath(), "-o", img.getAbsolutePath()};
-
- Process p = rt.exec(args);
-
- p.waitFor();
-
- FileInputStream in = new FileInputStream(img.getAbsolutePath());
-
- img\_stream = new byte[in.available()];
-
- in.read(img\_stream);
-
- // Close it if we need to
-
- if( in != null ) in.close();
-
- if (img.delete() == false) 
-
- System.err.println("Warning: " + img.getAbsolutePath() + " could not be deleted!");
-
- }
-
- catch (java.io.IOException ioe) {
-
- System.err.println("Error: in I/O processing of tempfile in dir " + GraphViz.TEMP\_DIR+"\\n");
-
- System.err.println(" or in calling external command");
-
- ioe.printStackTrace();
-
- }
-
- catch (java.lang.InterruptedException ie) {
-
- System.err.println("Error: the execution of the external program was interrupted");
-
- ie.printStackTrace();
-
- }
-
- return img\_stream;
-
- }
-
- /\*\*
-
- \* Writes the source of the graph in a file, and returns the written file
-
- \* as a File object.
-
- \* @param str Source of the graph (in dot language).
-
- \* @return The file (as a File object) that contains the source of the graph.
-
- \*/
-
- public File writeDotSourceToFile(String str) throws java.io.IOException
-
- {
-
- File temp;
-
- try {
-
- temp = File.createTempFile("dorrr",".dot", new File(GraphViz.TEMP\_DIR));
-
- FileWriter fout = new FileWriter(temp);
-
- fout.write(str);
-
- //BufferedWriter br=new BufferedWriter(new FileWriter("dotsource.dot"));
-
- //br.write(str);
-
- //br.flush();
-
- //br.close();
-
- fout.close();
-
- }
-
- catch (Exception e) {
-
- System.err.println("Error: I/O error while writing the dot source to temp file!");
-
- return null;
-
- }
-
- return temp;
-
- }
-
- /\*\*
-
- \* Returns a string that is used to start a graph.
-
- \* @return A string to open a graph.
-
- \*/
-
- public String start\_graph() {
-
- return "digraph G {";
-
- }
-
- /\*\*
-
- \* Returns a string that is used to end a graph.
-
- \* @return A string to close a graph.
-
- \*/
-
- public String end\_graph() {
-
- return "}";
-
- }
-
- /\*\*
-
- \* Takes the cluster or subgraph id as input parameter and returns a string
-
- \* that is used to start a subgraph.
-
- \* @return A string to open a subgraph.
-
- \*/
-
- public String start\_subgraph(int clusterid) {
-
- return "subgraph cluster\_" + clusterid + " {";
-
- }
-
- /\*\*
-
- \* Returns a string that is used to end a graph.
-
- \* @return A string to close a graph.
-
- \*/
-
- public String end\_subgraph() {
-
- return "}";
-
- }
-
- /\*\*
-
- \* Read a DOT graph from a text file.
-
- \* 
-
- \* @param input Input text file containing the DOT graph
-
- \* source.
-
- \*/
-
- public void readSource(String input)
-
- {
-
- StringBuilder sb = new StringBuilder();
-
- try
-
- {
-
- FileInputStream fis = new FileInputStream(input);
-
- DataInputStream dis = new DataInputStream(fis);
-
- BufferedReader br = new BufferedReader(new InputStreamReader(dis));
-
- String line;
-
- while ((line = br.readLine()) != null) {
-
- sb.append(line);
-
- }
-
- dis.close();
-
- } 
-
- catch (Exception e) {
-
- System.err.println("Error: " + e.getMessage());
-
- }
-
- this.graph = sb;
-
- }
-
+    /**
+     * The dir. where temporary files will be created.
+     */
+    private static String TEMP_DIR ;
+
+    /**
+     * Where is your dot program located? It will be called externally.
+     */
+    private static String DOT = "/usr/local/bin/dot";
+
+    /**
+     * The image size in dpi. 96 dpi is normal size. Higher values are 10% higher each.
+     * Lower values 10% lower each.
+     * 
+     * dpi patch by Peter Mueller
+     */
+    private int[] dpiSizes = {46, 51, 57, 63, 70, 78, 86, 96, 106, 116, 128, 141, 155, 170, 187, 206, 226, 249};
+
+    /**
+     * Define the index in the image size array.
+     */
+    private int currentDpiPos = 15;
+    /**
+     * set the dir. where temporary files will be created.
+     */
+    public void setdir(String path) {
+	    TEMP_DIR = path;
+    }
+    /**
+     * Increase the image size (dpi).
+     */
+    public void increaseDpi() {
+        if ( this.currentDpiPos < (this.dpiSizes.length - 1) ) {
+            ++this.currentDpiPos;
+        }
+    }
+
+    /**
+     * Decrease the image size (dpi).
+     */
+    public void decreaseDpi() {
+        if (this.currentDpiPos > 0) {
+            --this.currentDpiPos;
+        }
+    }
+
+    public int getImageDpi() {
+        return this.dpiSizes[this.currentDpiPos];
+    }
+
+    /**
+     * The source of the graph written in dot language.
+     */
+    private StringBuilder graph = new StringBuilder();
+
+    /**
+     * Constructor: creates a new GraphViz object that will contain
+     * a graph.
+     */
+    public GraphViz() {
+    }
+
+    /**
+     * Returns the graph's source description in dot language.
+     * @return Source of the graph in dot language.
+     */
+    public String getDotSource() {
+        return this.graph.toString();
+    }
+
+    /**
+     * Adds a string to the graph's source (without newline).
+     */
+    public void add(String line) {
+        this.graph.append(line);
+    }
+
+    /**
+     * Adds a string to the graph's source (with newline).
+     */
+    public void addln(String line) {
+        this.graph.append(line + "\n");
+    }
+
+    /**
+     * Adds a newline to the graph's source.
+     */
+    public void addln() {
+        this.graph.append('\n');
+    }
+
+    public void clearGraph(){
+        this.graph = new StringBuilder();
+    }
+
+    /**
+     * Returns the graph as an image in binary format.
+     * @param dot_source Source of the graph to be drawn.
+     * @param type Type of the output image to be produced, e.g.: gif, dot, fig, pdf, ps, svg, png.
+     * @return A byte array containing the image of the graph.
+     */
+    public byte[] getGraph(String dot_source, String type)
+    {
+        File dot;
+        byte[] img_stream = null;
+        try {
+            dot = writeDotSourceToFile(dot_source);
+            if (dot != null)
+            {
+                img_stream = get_img_stream(dot, type);
+                if (dot.delete() == false) 
+                    System.err.println("Warning: " + dot.getAbsolutePath() + " could not be deleted!");
+                return img_stream;
+            }
+            return null;
+        } catch (java.io.IOException ioe) { return null; }
+    }
+
+    /**
+     * Writes the graph's image in a file.
+     * @param img   A byte array containing the image of the graph.
+     * @param file  Name of the file to where we want to write.
+     * @return Success: 1, Failure: -1
+     */
+    public int writeGraphToFile(byte[] img, String file)
+    {
+        File to = new File(file);
+        return writeGraphToFile(img, to);
+    }
+
+    /**
+     * Writes the graph's image in a file.
+     * @param img   A byte array containing the image of the graph.
+     * @param to    A File object to where we want to write.
+     * @return Success: 1, Failure: -1
+     */
+    public int writeGraphToFile(byte[] img, File to)
+    {
+        try {
+            FileOutputStream fos = new FileOutputStream(to);
+            fos.write(img);
+            fos.close();
+        } catch (java.io.IOException ioe) { return -1; }
+        return 1;
+    }
+
+    /**
+     * It will call the external dot program, and return the image in
+     * binary format.
+     * @param dot Source of the graph (in dot language).
+     * @param type Type of the output image to be produced, e.g.: gif, dot, fig, pdf, ps, svg, png.
+     * @return The image of the graph in .gif format.
+     */
+    private byte[] get_img_stream(File dot, String type)
+    {
+        File img;
+        byte[] img_stream = null;
+
+        try {
+            img = File.createTempFile("graph_", "."+type, new File(GraphViz.TEMP_DIR));
+            Runtime rt = Runtime.getRuntime();
+
+            String[] args = {DOT, "-T"+type, "-Gdpi="+dpiSizes[this.currentDpiPos], dot.getAbsolutePath(), "-o", img.getAbsolutePath()};
+            Process p = rt.exec(args);
+
+            p.waitFor();
+
+            FileInputStream in = new FileInputStream(img.getAbsolutePath());
+            img_stream = new byte[in.available()];
+            in.read(img_stream);
+            // Close it if we need to
+            if( in != null ) in.close();
+
+            if (img.delete() == false) 
+                System.err.println("Warning: " + img.getAbsolutePath() + " could not be deleted!");
+        }
+        catch (java.io.IOException ioe) {
+            System.err.println("Error:    in I/O processing of tempfile in dir " + GraphViz.TEMP_DIR+"\n");
+            System.err.println("       or in calling external command");
+            ioe.printStackTrace();
+        }
+        catch (java.lang.InterruptedException ie) {
+            System.err.println("Error: the execution of the external program was interrupted");
+            ie.printStackTrace();
+        }
+
+        return img_stream;
+    }
+
+    /**
+     * Writes the source of the graph in a file, and returns the written file
+     * as a File object.
+     * @param str Source of the graph (in dot language).
+     * @return The file (as a File object) that contains the source of the graph.
+     */
+    public File writeDotSourceToFile(String str) throws java.io.IOException
+    {
+        File temp;
+        try {
+            temp = File.createTempFile("dorrr",".dot", new File(GraphViz.TEMP_DIR));
+            FileWriter fout = new FileWriter(temp);
+            fout.write(str);
+                       //BufferedWriter br=new BufferedWriter(new FileWriter("dotsource.dot"));
+                       //br.write(str);
+                       //br.flush();
+                       //br.close();
+            fout.close();
+        }
+        catch (Exception e) {
+            System.err.println("Error: I/O error while writing the dot source to temp file!");
+            return null;
+        }
+        return temp;
+    }
+
+    /**
+     * Returns a string that is used to start a graph.
+     * @return A string to open a graph.
+     */
+    public String start_graph() {
+        return "digraph G {";
+    }
+
+    /**
+     * Returns a string that is used to end a graph.
+     * @return A string to close a graph.
+     */
+    public String end_graph() {
+        return "}";
+    }
+
+    /**
+     * Takes the cluster or subgraph id as input parameter and returns a string
+     * that is used to start a subgraph.
+     * @return A string to open a subgraph.
+     */
+    public String start_subgraph(int clusterid) {
+        return "subgraph cluster_" + clusterid + " {";
+    }
+
+    /**
+     * Returns a string that is used to end a graph.
+     * @return A string to close a graph.
+     */
+    public String end_subgraph() {
+        return "}";
+    }
+
+    /**
+     * Read a DOT graph from a text file.
+     * 
+     * @param input Input text file containing the DOT graph
+     * source.
+     */
+    public void readSource(String input)
+    {
+        StringBuilder sb = new StringBuilder();
+
+        try
+        {
+            FileInputStream fis = new FileInputStream(input);
+            DataInputStream dis = new DataInputStream(fis);
+            BufferedReader br = new BufferedReader(new InputStreamReader(dis));
+            String line;
+            while ((line = br.readLine()) != null) {
+                sb.append(line);
+            }
+            dis.close();
+        } 
+        catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+
+        this.graph = sb;
+    }
 }
 
 ```
