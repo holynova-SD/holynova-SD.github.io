@@ -36,7 +36,7 @@ GraphViz官方网站：[http://www.graphviz.org](http://www.graphviz.org)
 
 Windows系统下GraphViz下载地址为：[Windows下载地址](http://www.graphviz.org/Download_windows.php)
 
-![Loading...](https://github.com/holynova-SD/Blog-Pictures/blob/master/2017-09-16/winGraphViz.png)
+<img src="https://github.com/holynova-SD/Blog-Pictures/blob/master/2017-09-16/winGraphViz.png" alt="Loading..."/>
 
 选择相应文件下载安装后需将graphviz安装目录下的bin文件夹添加到Path环境变量中。之后在cmd中输入
 ```
