@@ -48,7 +48,7 @@ dot -version
 
 Mac OS系统下GraphViz下载地址为：[MacOS下载地址](http://www.graphviz.org/Download_macos.php)
 
-![Loading...](https://github.com/holynova-SD/Blog-Pictures/blob/master/2017-09-16/macosGraphViz.png?raw=true)
+<img src="https://github.com/holynova-SD/Blog-Pictures/blob/master/2017-09-16/macosGraphViz.png?raw=true" alt="Loading..."/>
 
 选择相应文件安装即可。下载完成后可运行程序dot的路径一般为 /usr/local/bin/dot 。在终端中输入
 ```
@@ -99,7 +99,7 @@ dot -Tjpg test.gv -o test.jpg
 ```
 可以看到在当前文件夹下生成了test.jpg，图片如下：
 
-![Loading...](https://github.com/holynova-SD/Blog-Pictures/blob/master/2017-09-16/test0.jpg?raw=true)
+<img src="https://github.com/holynova-SD/Blog-Pictures/blob/master/2017-09-16/test0.jpg?raw=true" alt="Loading..."/>
 
 编辑test.gv为以下内容：
 
@@ -129,7 +129,7 @@ digraph g {
 
 终端进行相同操作，可以得到下面的图片：
 
-![Loading...](https://github.com/holynova-SD/Blog-Pictures/blob/master/2017-09-16/test1.jpg?raw=true)
+<img src="https://github.com/holynova-SD/Blog-Pictures/blob/master/2017-09-16/test1.jpg?raw=true" alt="Loading"/>
 
 编辑test.gv为以下内容：
 
@@ -152,7 +152,7 @@ digraph G {
 
 终端进行相同操作，可以得到下面的图片：
 
-![Loading...](https://github.com/holynova-SD/Blog-Pictures/blob/master/2017-09-16/test2.jpg?raw=true)
+<img src="https://github.com/holynova-SD/Blog-Pictures/blob/master/2017-09-16/test2.jpg?raw=true" alt="Loading"/>
 
 ## dot语法简介
 
@@ -293,7 +293,7 @@ digraph g {
 
 将得到以下图片：
 
-![Loading...](https://github.com/holynova-SD/Blog-Pictures/blob/master/2017-09-16/test3.jpg?raw=true)
+<img src="https://github.com/holynova-SD/Blog-Pictures/blob/master/2017-09-16/test3.jpg?raw=true" alt="Loading..."/>
 
 ### 单独设置节点属性
 
