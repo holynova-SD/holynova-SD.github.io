@@ -28,13 +28,13 @@ tags: #标签
 
 Graphviz是贝尔实验室研制的一款开源的画图工具，其输入为一个用dot语言编写的脚本，通过对输入脚本的分析，分析出其中的点、边和子图，然后根据其属性绘制为一幅图。编写dot脚本时，我们只需考虑点和边之间的关系，至于布局则完全不需要我们考虑。GraphViz支持生成jpg、png、bmp、ps、svg以及pdf等格式的图片，使用起来简单强大。
 
-GraphViz官方网站：http://www.graphviz.org
+GraphViz官方网站：[http://www.graphviz.org](http://www.graphviz.org)
 
 ## GraphViz下载及安装
 
 ### Windows系统下
 
-Windows系统下GraphViz下载地址为：http://www.graphviz.org/Download\_windows.php
+Windows系统下GraphViz下载地址为：[Windows下载地址](http://www.graphviz.org/Download_windows.php)
 
 ![Loading...](img/2017-09-16/winGraphViz.png)
 
@@ -46,7 +46,7 @@ dot -version
 
 ### Mac OS系统下
 
-Mac OS系统下GraphViz下载地址为：http://www.graphviz.org/Download\_macos.php
+Mac OS系统下GraphViz下载地址为：[MacOS下载地址](http://www.graphviz.org/Download_macos.php)
 
 ![Loading...](img/2017-09-16/macosGraphViz.png)
 
@@ -447,7 +447,7 @@ digraph g {
 ```
 ### 点和边属性可取值
 
-点和边的属性可取值具体可从GraphViz官网（http://www.graphviz.org）官方文档了解。这里不再赘述。
+点和边的属性可取值具体可从[GraphViz官网](http://www.graphviz.org) 官方文档了解。这里不再赘述。
 
 # 在Java项目中调用GraphViz的一种方法
 
