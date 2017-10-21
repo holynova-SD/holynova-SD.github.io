@@ -23,6 +23,7 @@ tags: #标签
  - Software Engineering
 
 ---
+
 #Redefinition failed with error 62
 
 >本文写成时，使用的Java版本为1.8.0_121，VisualVM版本为1.3.9.
@@ -34,11 +35,13 @@ Redefinition failed with error 62
 Check JVMTI Documentation for this error code
 ```
 这时候一种可行的解决办法如下：
+
 ##命令行
 如果是在命令行下运行jar包，则可在后面添加如下参数（假设运行的jar包名为a,jar）：
 ```
 java -jar a.jar -Xverify:none
 ```
+
 ##Eclipse
 如果是在Eclipse中，则可以把刚才的参数添加到运行设置中。步骤如下：
 ①打开Eclipse，右击项目名称，选择Run as -> Run Configurations...，选择。
