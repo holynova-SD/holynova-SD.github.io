@@ -1,7 +1,7 @@
 # Site settings
 title: Blog of Holynova
 SEOTitle: Blog
-header-img: img/post-bg-desk.jpg
+header-img: img/post-bg-desk2.jpg
 email: holyalakir@outlook.com
 description: "伟大的航路.<br>For one piece!"
 keyword: "BY, BY Blog"
@@ -20,7 +20,7 @@ sidebar-avatar: /img/about-BY-gentle.jpg      # use absolute URL, seeing it's us
 RSS: false
 # weibo_username:     qiubaiying
 #zhihu_username:     qiubaiying
-#github_username:    qiubaiying
+github_username:    holynova-SD
 #facebook_username:  baiying.qiu.7
 #jianshu_username:   e71990ada2fd
 #twitter_username:   qiubaiying
